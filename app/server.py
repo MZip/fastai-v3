@@ -9,6 +9,10 @@ from starlette.middleware.cors import CORSMiddleware
 from starlette.responses import HTMLResponse, JSONResponse
 from starlette.staticfiles import StaticFiles
 
+import torch
+print("\n\nTorch Version:")
+print(torch.__version__)
+
 export_file_url = 'https://www.dropbox.com/s/jvjz518j0l45x50/export.pkl?dl=1'
 export_file_name = 'export.pkl'
 
