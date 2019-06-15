@@ -12,7 +12,7 @@ from starlette.staticfiles import StaticFiles
 export_file_url = 'https://www.dropbox.com/s/jvjz518j0l45x50/export.pkl?dl=1'
 export_file_name = 'export.pkl'
 
-classes = ["cayenne", "cayman", "boxster", "911", "macan", "panamera","other"]
+classes = ['911', 'boxster', 'cayenne', 'cayman', 'macan', 'other', 'panamera']
 path = Path(__file__).parent
 
 app = Starlette()
@@ -60,7 +60,7 @@ async def analyze(request):
     img_data = await request.form()
     img_bytes = await (img_data['file'].read())
     img = open_image(BytesIO(img_bytes))
-    img = img.crop_pad(size=max(img.size), padding_mode="zeros").resize(224)
+    img.crop_pad(size=max(img.size), padding_mode="zeros").resize(224)
     prediction = learn.predict(img)[0]
     return JSONResponse({'result': str(prediction)})
 
