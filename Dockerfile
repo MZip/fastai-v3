@@ -7,7 +7,7 @@ COPY requirements.txt .
 
 RUN pip install --upgrade -r requirements.txt
 RUN pip install --upgrade fastai torch==1.0.0
-RUN pip install --upgrade torch==1.0.0
+
 
 COPY app app/
 
